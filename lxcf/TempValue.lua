@@ -10,6 +10,7 @@ local modValue		= require "lxcf.Value";
 local classTempValue		= modValue.Value:new();
 classTempValue.__index		= classTempValue;
 classTempValue.__name		= "lxcf.TempValue";
+classTempValue.__tostring	= classTempValue.__tostring;
 classTempValue.shortType	= 't';
 
 classTempValue.new = function(self, id)

@@ -5,13 +5,18 @@
 --	Copyright (c) 2024 Yao Zi. All rights reserved.
 --]]
 
-local classValue	= {};
-classValue.__index	= classConstant;
-classValue.__name	= "lxcf.Value";
-classValue.shortType	= 'v';
+local classValue	= {
+				__name		= "lxcf.Value",
+				shortType	= 'v',
+			  };
+classValue.__index	= classValue;
+
+classValue.__tostring = function(self)
+	return ("%s: %d"):format(self.__name, self.id);
+end
 
 classValue.new = function(self)
-	return { { }, self };
+	return setmetatable({}, self );
 end
 
 classValue.type = function(self)
